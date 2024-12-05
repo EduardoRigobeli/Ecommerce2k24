@@ -1,50 +1,45 @@
 package br.ecommerce.projetoEcommerce.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-import java.time.LocalDate;
+import jakarta.persistence.*;
 
 @Entity
 @Table
 public class Pedido {
-
     @Id
-    @Column(name = "id_pedido")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)// dizer que essa coluna é um auto_increment
+    @Column (name = "id_pedido")
     private Integer idPedido;
 
-    @Column(name = "dt_pedido")
-    private LocalDate dtPedido;
+    @Column (name = "dt_pedido")
+    private String dataPedido;
 
     @Column
-    private Integer total;
+    private float total;
 
     @Column
     private String status;
 
-    public Integer getIdPedido() {
+    public Integer getIdpedido() {
         return idPedido;
     }
 
-    public void setIdPedido(Integer idPedido) {
-        this.idPedido = idPedido;
+    public void setIdpedido(Integer idpedido) {
+        this.idPedido = idpedido;
     }
 
-    public LocalDate getDtPedido() {
-        return dtPedido;
+    public String getDatapedido() {
+        return dataPedido;
     }
 
-    public void setDtPedido(LocalDate dtPedido) {
-        this.dtPedido = dtPedido;
+    public void setDatapedido(String datapedido) {
+        this.dataPedido = datapedido;
     }
 
-    public Integer getTotal() {
+    public float getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(float total) {
         this.total = total;
     }
 

@@ -1,9 +1,9 @@
 package br.ecommerce.projetoEcommerce.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table
@@ -21,9 +21,16 @@ public class Produto {
     @Column
     private Integer estoque;
 
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
+    private Categoria idCategoria;
+
+    @OneToMany(mappedBy = "idProduto")
+    @JsonIgnoreProperties("idProduto")
+    private List<AuditPrecoProduto> auditPreco;
+
     public Integer getIdProduto() {
         return idProduto;
-
     }
 
     public void setIdProduto(Integer idProduto) {
@@ -52,6 +59,22 @@ public class Produto {
 
     public void setEstoque(Integer estoque) {
         this.estoque = estoque;
+    }
+
+    public Categoria getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(Categoria idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public List<AuditPrecoProduto> getAuditPreco() {
+        return auditPreco;
+    }
+
+    public void setAuditPreco(List<AuditPrecoProduto> auditPreco) {
+        this.auditPreco = auditPreco;
     }
 }
 

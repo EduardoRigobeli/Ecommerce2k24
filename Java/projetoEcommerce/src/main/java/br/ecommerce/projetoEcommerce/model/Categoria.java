@@ -1,20 +1,23 @@
 package br.ecommerce.projetoEcommerce.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 
-@Table
+import java.util.List;
+
 @Entity
+@Table
 public class Categoria {
-
     @Id
     @Column(name = "id_categoria")
     private Integer idCategoria;
 
-    @Column(name = "tipo_categoria")
+    @Column(name = "tipo_categoria", length = 50)
     private String tipoCategoria;
+
+    @OneToMany(mappedBy = "idCategoria")//mapeia o objeto do Java
+    @JsonIgnoreProperties("idCategoria")
+    private List<Produto> produtos;
 
     public Integer getIdCategoria() {
         return idCategoria;
@@ -30,5 +33,13 @@ public class Categoria {
 
     public void setTipoCategoria(String tipoCategoria) {
         this.tipoCategoria = tipoCategoria;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 }

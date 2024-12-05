@@ -1,7 +1,17 @@
 insert into forma_pagamento (id_forma, forma_pagamento)
 values (1, 'Pix'),
-(2, 'Cartão de Crédito'),
-(3, 'Boleto');
+(2, 'Cartão de Credito/Debito'),
+(3, 'Parcelamento'),
+(4, 'Boleto Bancario');
+
+insert into categoria (id_categoria, tipo_categoria)
+values (1, 'Audio e Video'),
+(2, 'Games'),
+(3, 'Computador'),
+(4, 'Drones'),
+(5, 'Celulares e Smartphones'),
+(6, 'Smartwatchs'),
+(7, 'Promoções');
 
 insert into produto (id_produto, nm_produto, preco, estoque, id_categoria)
 values (1, 'Headset JBL TUNE 770C', 299.99, 200, 1),
@@ -25,12 +35,3 @@ values (1, 'Headset JBL TUNE 770C', 299.99, 200, 1),
 (19, 'Mini Projetor Portátil 4K 1080P Full HD', 129.99, 150, 1),
 (20, 'Console Xbox Series X 1TB SSD', 2029.99, 100, 2),
 (21, 'Drone câmera Dupla 4K preto', 189.99, 150, 4);
-
-insert into categoria (id_categoria, tipo_categoria)
-values (1, 'Audio e Video'),
-(2, 'Games'),
-(3, 'Computador'),
-(4, 'Drones'),
-(5, 'Celulares e Smartphones'),
-(6, 'Smartwatchs'),
-(7, 'Promoções');

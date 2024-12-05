@@ -1,34 +1,30 @@
 package br.ecommerce.projetoEcommerce.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name = "forma_pagamento")
 public class FormaPagamento {
-
     @Id
-    @Column(name = "id_forma")
+    @Column (name = "id_forma")
     private Integer idForma;
 
-    @Column(name = "forma_pagamento")
+    @Column (name = "forma_pagamento")
     private String formaPagamento;
 
-    public Integer getIdForma() {
+    public Integer getIdforma() {
         return idForma;
     }
 
-    public void setIdForma(Integer idForma) {
-        this.idForma = idForma;
+    public void setIdforma(Integer idforma) {
+        this.idForma = idforma;
     }
 
-    public String getFormaPagamento() {
+    public String getFormapagamento() {
         return formaPagamento;
     }
 
-    public void setFormaPagamento(String formaPagamento) {
-        this.formaPagamento = formaPagamento;
+    public void setFormapagamento(String formapagamento) {
+        this.formaPagamento = formapagamento;
     }
 }
